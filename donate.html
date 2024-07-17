@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebensmittel Verschenken - Foodshare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Foodshare Logo">
+        <h1>Lebensmittel Verschenken</h1>
+    </header>
+    
+    <main>
+        <div id="donate-form">
+            <h2>Lebensmittel verschenken</h2>
+            <form id="donation-form" action="donate.php" method="POST">
+                <label for="barcode">Barcode:</label>
+                <div style="display: flex; align-items: center;">
+                    <input type="text" id="barcode" name="barcode" required>
+                    <button type="button" id="scan-barcode-btn" style="background: none; border: none; padding: 0; margin-left: 10px;">
+                        <img src="img/barcode.png" alt="Barcode scannen" style="width: 30px; height: auto;">
+                    </button>
+                </div>
+                <label for="first_name">Vorname:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                <label for="last_name">Nachname:</label>
+                <input type="text" id="last_name" name="last_name" required>
+                <label for="address">Adresse:</label>
+                <input type="text" id="address" name="address" required autocomplete="off">
+                <div id="address-suggestions"></div>
+                <label for="phone">Telefonnummer:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mhd">MHD:</label>
+                <input type="date" id="mhd" name="mhd" required>
+                <input type="hidden" id="latitude" name="latitude" required>
+                <input type="hidden" id="longitude" name="longitude" required>
+                <button type="submit">Verschenken</button>
+            </form>
+            <a href="index.html" id="startseite-btn">Zurück zur Startseite</a>
+        </div>
+
+        <div id="scanner-container" style="display: none;">
+            <div id="scanner-overlay"></div>
+            <div id="interactive" class="viewport"></div>
+            <button type="button" id="close-scanner-btn">Schließen</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+        <script src="donate.js"></script>
+    </main>
+</body>
+</html>
